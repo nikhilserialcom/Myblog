@@ -1,3 +1,7 @@
+var Scheme = window.location.protocol;
+var hostname = window.location.hostname;
+var SchemeAndHttpHost = Scheme + '//' + hostname;
+
 const search_input_icon = document.querySelector('.search_input_icon');
 const search_input_icon_i = document.querySelectorAll('.search_input_icon i');
 const search_input_outer = document.querySelector('.search_input_outer');
@@ -9,10 +13,10 @@ const moon = document.querySelector('.moon');
 
 // console.log(social_icon);
 
-const serach_url = "http://192.168.0.169:8000/api/search";
-const search_page = "http://192.168.0.169:8000/api/search-result";
-const blog_url = "http://192.168.0.169:8000/api/blog";
-const category_post = "http://192.168.0.169:8000/api/categoryPost";
+const serach_url = "api/search";
+const search_page = "api/search-result";
+const blog_url = "api/blog";
+const category_post = "api/categoryPost";
 const search_input = document.querySelector('.search');
 const search_result =document.querySelector('.search_result .text');
 const search_btn = document.querySelector('.search_btn');

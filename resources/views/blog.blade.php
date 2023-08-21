@@ -75,7 +75,6 @@
                                             @else
                                                 <p>Unkonw user</p>
                                             @endif
-                                            {{-- <p>Tracey Wilson</p> --}}
                                         </div>
                                     </div>
                                     <div class="date_time">

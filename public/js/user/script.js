@@ -38,8 +38,14 @@ var popular = (li_tex) => {
             // console.log(json);
             post_data.innerHTML = json.map(val => {
 
-                const { id, title, categoryname, postImage } = val;
-
+                const { id, title, categoryname, postImage, created_at } = val;
+                const user = val.user;
+                const parseDate = new Date(created_at);
+                const formattedDate = new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }).format(parseDate);
                 return `
                 <a href='${blogUrl}/${categoryname}/${id}'>
                     <div class="card">
@@ -52,6 +58,19 @@ var popular = (li_tex) => {
                                 <button>${categoryname}</button>
                             </div>
                         <h3>${title}</h3>
+                        </div>
+                        <div class="users">
+                            <div class="user_img_name_div">
+                                <div class="user_img_div">
+                                    <img src="${user.profile}" alt="">
+                                </div>
+                                <span>
+                                   ${user.name}
+                                </span>
+                            </div>
+                            <div class="date_div">
+                                ${formattedDate}
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -91,8 +110,14 @@ var all_artical = (li_tex) => {
         .then(json => {
             // console.log(json);
             artical_data.innerHTML = json.map(val => {
-                const { id, title, categoryname, postImage } = val;
-
+                const { id, title, categoryname, postImage, created_at } = val;
+                const user = val.user;
+                const parseDate = new Date(created_at);
+                const formattedDate = new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }).format(parseDate);
                 return `
                 <a href="${blogUrl}/${categoryname}/${id}">
                     <div class="card">
@@ -105,6 +130,19 @@ var all_artical = (li_tex) => {
                                 <button>${categoryname}</button>
                             </div>
                         <h3>${title}</h3>
+                        </div>
+                        <div class="users">
+                            <div class="user_img_name_div">
+                                <div class="user_img_div">
+                                    <img src="${user.profile}" alt="">
+                                </div>
+                                <span>
+                                   ${user.name}
+                                </span>
+                            </div>
+                            <div class="date_div">
+                               ${formattedDate}
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -145,8 +183,14 @@ var recent_artical = (li_tex) => {
             // console.log(json);
 
             recent_data.innerHTML = json.map(val => {
-                const { id, title, categoryname, postImage } = val;
-
+                const { id, title, categoryname, postImage,created_at } = val;
+                const user = val.user;
+                const parseDate = new Date(created_at);
+                const formattedDate = new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }).format(parseDate);
                 return `
                 <a href="${blogUrl}/${categoryname}/${id}">
                     <div class="card">
@@ -159,6 +203,19 @@ var recent_artical = (li_tex) => {
                                 <button>${categoryname}</button>
                             </div>
                             <h3>${title}</h3>
+                        </div>
+                        <div class="users">
+                            <div class="user_img_name_div">
+                                <div class="user_img_div">
+                                    <img src="${user.profile}" alt="">
+                                </div>
+                                <span>
+                                   ${user.name}
+                                </span>
+                            </div>
+                            <div class="date_div">
+                               ${formattedDate}
+                            </div>
                         </div>
                     </div>
                 </a>
@@ -198,9 +255,14 @@ var all_recent_data = () => {
         .then(response => response.json())
         .then(json => {
             all_recent.innerHTML = json.map(val => {
-                const { id, title, categoryname, postImage } = val;
+                const { id, title, categoryname, postImage,created_at } = val;
                 const user = val.user;
-
+                const parseDate = new Date(created_at);
+                const formattedDate = new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }).format(parseDate);
                 return `
                 <a href="${blogUrl}/${categoryname}/${id}">
                     <div class="card">
@@ -224,7 +286,7 @@ var all_recent_data = () => {
                                 </span>
                             </div>
                             <div class="date_div">
-                                August 20, 2022
+                               ${formattedDate}
                             </div>
                         </div>
                     </div>
@@ -247,12 +309,17 @@ var Allpost_data = () => {
     })
         .then(response => response.json())
         .then(json => {
-
             All_post_data.innerHTML = json.map(val => {
-                const { id, title, categoryname, postImage } = val;
+                const { id, title, categoryname, postImage,created_at } = val;
 
                 let user = val.user;
 
+                const parseDate = new Date(created_at);
+                const formattedDate = new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }).format(parseDate);
                 return `
                 <a href="${blogUrl}/${categoryname}/${id}">
                     <div class="card">
@@ -276,7 +343,7 @@ var Allpost_data = () => {
                                 </span>
                             </div>
                             <div class="date_div">
-                                August 20, 2022
+                                ${formattedDate}
                             </div>
                         </div>
                     </div>
@@ -301,8 +368,14 @@ var all_popular = () => {
         .then(json => {
 
             all_popular_data.innerHTML = json.map(val => {
-                const { id, title, categoryname, postImage } = val;
+                const { id, title, categoryname, postImage,created_at } = val;
                 const user = val.user;
+                const parseDate = new Date(created_at);
+                const formattedDate = new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }).format(parseDate);
                 return `
                 <a href="${blogUrl}/${categoryname}/${id}">
                     <div class="card">
@@ -326,7 +399,7 @@ var all_popular = () => {
                                 </span>
                             </div>
                             <div class="date_div">
-                                August 20, 2022
+                                ${formattedDate}
                             </div>
                         </div>
                     </div> 

@@ -2,9 +2,9 @@ var Scheme = window.location.protocol;
 var hostname = window.location.hostname;
 var SchemeAndHttpHost = Scheme + '//' + hostname;
 
-const blogUrl = "api/blog";
-const allDataUrl = "api/home";
-const view_all_url = "api/viewAllpost";
+const blogUrl = "/api/blog";
+const allDataUrl = "/api/home";
+const view_all_url = "/api/viewAllpost";
 const demo_ul_li = document.querySelectorAll('.demo_post ul li');
 const view_all_data = document.querySelector('.view_all_data');
 const title = document.querySelector('.title h2');
@@ -76,10 +76,16 @@ var view_post = (li_text)=> {
     })
         .then(response => response.json())
         .then(json => {
-            console.log(json);
+            // console.log(json);
             view_all_data.innerHTML = json.map(val => {
-                const{id,title,categoryname,postImage} = val;
-
+                const{id,title,categoryname,postImage,created_at} = val;
+                const user = val.user;
+                const parseDate = new Date(created_at);
+                const formattedDate = new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                }).format(parseDate);
                 return `
                 <a href="${blogUrl}/${categoryname}/${id}">
                     <div class="card">
@@ -92,6 +98,19 @@ var view_post = (li_text)=> {
                                 <button>${categoryname}</button>
                             </div>
                         <h3>${title}</h3>
+                        </div>
+                        <div class="users">
+                            <div class="user_img_name_div">
+                                <div class="user_img_div">
+                                    <img src="${user.profile}" alt="">
+                                </div>
+                                <span>
+                                   ${user.name}
+                                </span>
+                            </div>
+                            <div class="date_div">
+                                ${formattedDate}
+                            </div>
                         </div>
                     </div>
                 </a>

@@ -35,10 +35,10 @@ class postApiController extends Controller
         // $category = $request->input('category');
         $json = $request->json()->all();
         $category = $json['category'];
-        $posts = Post::all();
+        $posts = Post::with('user')->get();
         if($category !== "all")
         {
-            $posts = Post::Where('categoryname',$category)->get();
+            $posts = Post::Where('categoryname',$category)->with('user')->get();
         }
         $postdata = $posts;
         return response($postdata);
@@ -48,10 +48,10 @@ class postApiController extends Controller
     {
         $json = $request->json()->all();
         $category = $json['categoryname'];
-        $query = Post::orderBy('count','desc')->limit(3)->get();
+        $query = Post::orderBy('count','desc')->with('user')->limit(3)->get();
  
         if ($category !== "all") {
-            $query=Post::where('categoryname', $category)->orderBy('count','desc')->get(); // Corrected the method name to 'where'
+            $query=Post::where('categoryname', $category)->orderBy('count','desc')->with('user')->get(); // Corrected the method name to 'where'
         }
 
         $popuplarPost = $query;
@@ -100,7 +100,7 @@ class postApiController extends Controller
             $query->where('categoryname', $category);
         }
 
-        $recentArtical = $query->get();
+        $recentArtical = $query->with('user')->get();
 
         return response($recentArtical);
     }
@@ -188,31 +188,31 @@ class postApiController extends Controller
         $category = $json['categoryname'];
         if($status == "Recent Articals")
         {
-            $query = Post::orderBy('id','desc')->get();
+            $query = Post::orderBy('id','desc')->with('user')->get();
 
             if($category !== "all")
             {
-                $query = Post::where('categoryname',$category)->orderBy('id','desc')->get();
+                $query = Post::where('categoryname',$category)->with('user')->orderBy('id','desc')->get();
             }
             $recentPost = $query;
             return response($recentPost);
         }
         if($status == "Popular Articals")
         {
-            $query = Post::orderBy('count','desc')->get();
+            $query = Post::orderBy('count','desc')->with('user')->get();
  
             if ($category !== "all") {
-                $query=Post::where('categoryname', $category)->orderBy('count','desc')->get(); // Corrected the method name to 'where'
+                $query=Post::where('categoryname', $category)->with('user')->orderBy('count','desc')->get(); // Corrected the method name to 'where'
             }
             $popuplarPost = $query;
             return response($popuplarPost);
         }
         if ($status == "All Articals") {
-            $query = Post::all();
+            $query = Post::with('user')->get();
 
             if($category !== "all")
             {
-                $query = Post::where('categoryname',$category)->get();
+                $query = Post::where('categoryname',$category)->with('user')->get();
             }
 
             $allPost = $query;

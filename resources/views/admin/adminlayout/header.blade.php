@@ -64,7 +64,6 @@
                     <img src="{{  Auth::user()->profile }}" alt="profileImg" />
                     <div class="name_job">
                         <div class="name">{{ Auth::user()->name }}</div>
-                        {{-- <div class="job">Web designer</div> --}}
                     </div>
             </div>
                 <form action="{{ route('logout') }}" method="post">
