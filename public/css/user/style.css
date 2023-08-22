@@ -737,6 +737,7 @@ nav .inner_nav .search_lang_mode_div .search_box .sub_box .search_text .text p:h
 .App .all_category_div .popular_articals .card_main .card .users .date_div {
     font-size: 0.8rem;
     color: var(--gray-color);
+    font-weight: 700;
 }
 
 .App .all_category_div .popular_articals .card_main .card .users .date_div:hover {
@@ -1153,7 +1154,9 @@ footer .main_footer .subscriibe_followlink_div .social_media_lable_icon_div .soc
 }
 
 .outer_all_blog .sub_all_blog .upload_blog .sub_blog .user_detail_blog .user_name_logo .image {
-    width: 17%;
+    /* width: 17%; */
+    width: 28px;
+    height: 28px;
 }
 
 .outer_all_blog .sub_all_blog .upload_blog .sub_blog .user_detail_blog .user_name_logo .image img {
@@ -1203,8 +1206,11 @@ footer .main_footer .subscriibe_followlink_div .social_media_lable_icon_div .soc
 .outer_all_blog .sub_all_blog .upload_blog .sub_blog .outer_blog .child_blog .blog_contain p {
     text-align: start;
     color: var(--light-black);
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 500;
     /* margin-bottom: 10px; */
+    line-height: 28px;
+    font-family:  source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .outer_all_blog .sub_all_blog .upload_blog .sub_blog .outer_blog .child_blog .blog_contain p a {
@@ -1333,7 +1339,9 @@ footer .main_footer .subscriibe_followlink_div .social_media_lable_icon_div .soc
 }
 
 .outer_all_blog .sub_all_blog .recent_articles .sub_articles .user_detail .user_name_pic .img {
-    width: 20%;
+    /* width: 20%; */
+    width: 30px;
+    height: 30px;
 }
 
 .outer_all_blog .sub_all_blog .recent_articles .sub_articles .user_detail .user_name_pic .img img {

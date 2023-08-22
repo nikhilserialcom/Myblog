@@ -496,7 +496,7 @@ a {
 .home-section .card-body .post-header .user_detail_blog .date_time p {
   color: #97989F;
   font-size: 13px;
-  font-weight: bold;
+  font-family:  source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
   margin-bottom: 0px;
 }
 
@@ -521,6 +521,14 @@ a {
 
 .home-section .blog-contain h2 {
   color: #2980b9;
+}
+
+.home-section .blog-contain p
+{
+  line-height: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  font-family:  source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 .home-section .blog-table
