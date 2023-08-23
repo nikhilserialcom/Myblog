@@ -1161,6 +1161,7 @@ footer .main_footer .subscriibe_followlink_div .social_media_lable_icon_div .soc
 
 .outer_all_blog .sub_all_blog .upload_blog .sub_blog .user_detail_blog .user_name_logo .image img {
     width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 
@@ -1346,6 +1347,7 @@ footer .main_footer .subscriibe_followlink_div .social_media_lable_icon_div .soc
 
 .outer_all_blog .sub_all_blog .recent_articles .sub_articles .user_detail .user_name_pic .img img {
     width: 100%;
+    height: 100%;
     border-radius: 50%;
 }
 
