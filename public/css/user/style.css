@@ -641,8 +641,8 @@ nav .inner_nav .search_lang_mode_div .search_box .sub_box .search_text .text p:h
 }
 
 .App .all_category_div .popular_articals .card_main .card {
-    /* width: 385px; */
-    /* height: 350px; */
+    width: 385px;
+    height: 350px;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 20px;
@@ -783,6 +783,14 @@ nav .inner_nav .search_lang_mode_div .search_box .sub_box .search_text .text p:h
     }
 } */
 
+@media screen and (min-width:1280px) and (max-width:992px) 
+{
+    .App .all_category_div .popular_articals .card_main
+    {
+        gap: 6rem;
+    }
+    
+}
 
 @media screen and (max-width:400px) {
     .App .all_category_div .popular_articals .card_main .card .img_div {
