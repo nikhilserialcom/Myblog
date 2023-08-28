@@ -1,5 +1,5 @@
 var Scheme = window.location.protocol;
-var hostname = window.location.hostname;
+var hostname = window.location.hostname + ':' + window.location.port;
 var SchemeAndHttpHost = Scheme + '//' + hostname;
 
 const search_input_icon = document.querySelector('.search_input_icon');
@@ -13,8 +13,8 @@ const moon = document.querySelector('.moon');
 
 // console.log(social_icon);
 
-const serach_url = "api/search";
-const search_page = "api/search-result";
+const serach_url = SchemeAndHttpHost + "/" + "api/search";
+const search_page = SchemeAndHttpHost + "/" + "api/search-result";
 const blog_url = "api/blog";
 const category_post = "api/categoryPost";
 const search_input = document.querySelector('.search');
