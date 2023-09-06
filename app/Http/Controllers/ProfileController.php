@@ -36,7 +36,7 @@ class ProfileController extends Controller
             $thumbnailName = time(). '.' . $thumbnail->getClientOriginalExtension();
             $thumbnailPath = $thumbnail->storeAs('profile',$thumbnailName,'public');
 
-            $url = $request->getSchemeAndHttpHost() . '/storage/';
+            $url ='/storage/';
             if($user->profile)
             {
                 Storage::disk('public')->delete($user->profile);

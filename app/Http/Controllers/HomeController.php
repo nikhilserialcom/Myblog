@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class HomeController extends Controller
     public function index()
     {
         $sliders = Post::orderByDesc('id')->limit(5)->get();
-        $data = compact('sliders');
+        $categorys = Category::limit(5)->get();
+        $data = compact('sliders','categorys');
         return view('home')->with($data);
     }
 

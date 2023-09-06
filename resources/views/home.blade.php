@@ -57,11 +57,9 @@
                     <div class="heading_ul_div recent_artical">
                         <ul>
                             <li >all</li>
-                            <li>Game</li>
-                            <li>Movie</li>
-                            <li>Healthcare</li>
-                            <li>Technology</li>
-                            <li>branding</li>
+                            @foreach ($categorys as $category)
+                                <li>{{ $category->categoryName }}</li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="View_all_btn recent_btn">
@@ -117,11 +115,9 @@
                     <div class="heading_ul_div popular_artical ">
                         <ul>
                             <li>all</li>
-                            <li>Game</li>
-                            <li>Movie</li>
-                            <li>Healthcare</li>
-                            <li>Technology</li>
-                            <li>branding</li>
+                            @foreach ($categorys as $category)
+                                <li>{{ $category->categoryName }}</li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="View_all_btn">
@@ -178,11 +174,9 @@
                     <div class="heading_ul_div all_artical">
                         <ul>
                             <li>all</li>
-                            <li>Game</li>
-                            <li>Movie</li>
-                            <li>Healthcare</li>
-                            <li>Technology</li>
-                            <li>branding</li>
+                            @foreach ($categorys as $category)
+                                <li>{{ $category->categoryName }}</li>
+                            @endforeach
                         </ul>
                     </div>
                     <div class="View_all_btn">

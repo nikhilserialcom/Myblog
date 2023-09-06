@@ -19,7 +19,7 @@
                     <a href="{{ url('api/blog/'. $post->categoryname . '/' . $post->id) }}">
                         <div class="card">
                             <div class="img_div">
-                                <img src="{{ $post->postImage }}" alt="">
+                                <img src="{{ asset($post->postImage) }}" alt="">
                             </div>
                                     
                             <div class="button_text_user_div">
@@ -32,7 +32,12 @@
                             <div class="users">
                                 <div class="user_img_name_div">
                                     <div class="user_img_div">
-                                        <img src="{{ url('image/user.png') }}" alt="">
+                                        @if($post->user)
+                                            <img src=" {{ asset($post->user->profile) }}" alt="">                                                
+                                        @else
+                                            <img src="{{ url('image/user.png') }}" alt="">                                                                                               
+                                        @endif
+                                       
                                     </div>
                                     <span>
                                         @if ($post->user)

@@ -1,7 +1,8 @@
 var Scheme = window.location.protocol;
-var hostname = window.location.hostname;
+var hostname = window.location.hostname + ":" + window.location.port;
 var SchemeAndHttpHost = Scheme + '//' + hostname;
 
+console.log(SchemeAndHttpHost);
 const blogUrl = "/api/blog";
 const allDataUrl = "/api/home";
 const view_all_url = "/api/viewAllpost";
@@ -90,7 +91,7 @@ var view_post = (li_text)=> {
                 <a href="${blogUrl}/${categoryname}/${id}">
                     <div class="card">
                         <div class="img_div">
-                            <img src="${postImage}" alt="">
+                            <img src="${SchemeAndHttpHost}/${postImage}" alt="">
                         </div>
 
                         <div class="button_text_user_div">
@@ -102,7 +103,7 @@ var view_post = (li_text)=> {
                         <div class="users">
                             <div class="user_img_name_div">
                                 <div class="user_img_div">
-                                    <img src="${user.profile}" alt="">
+                                    <img src="${SchemeAndHttpHost}/${user.profile}" alt="">
                                 </div>
                                 <span>
                                    ${user.name}

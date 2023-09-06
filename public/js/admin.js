@@ -82,3 +82,4 @@ CKEDITOR.replace('body',{
     filebrowserUploadMethod:"form", 
 });
 
+

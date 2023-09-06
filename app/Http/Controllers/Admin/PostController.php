@@ -93,7 +93,7 @@ class PostController extends Controller
             //         ->fit(500, 350)
             //         ->save($fullResizedThumbnailPath);
         }
-        $url = $request->getSchemeAndHttpHost().'/storage/';
+        $url = '/storage/';
 
         Post::create([
             'authorId' =>auth()->user()->id,
@@ -189,7 +189,7 @@ class PostController extends Controller
         
         if($request->hasFile('thumbnail'))
         {
-            $url = $request->getSchemeAndHttpHost().'/storage/';
+            $url ='/storage/';
             $thumbnail = $request->file('thumbnail');
             $thumbnailName = time(). '.' .$thumbnail->getClientOriginalExtension();
             $thumbnailPath = $thumbnail->storeAs('Post',$thumbnailName,'public');

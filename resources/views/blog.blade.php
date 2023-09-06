@@ -14,7 +14,7 @@
                         <div class="user_name_logo">
                             <div class="image">
                                 @if ($post->user)
-                                    <img src="{{ $post->user->profile }}" alt="">   
+                                    <img src="{{ asset($post->user->profile) }}" alt="">   
                                 @else
                                     <img src=" {{ url('image/Image (2).svg') }}" alt="">     
                                 @endif
@@ -64,7 +64,7 @@
                                     <div class="user_name_pic">
                                         <div class="img">
                                             @if ($post->user)
-                                                <img src=" {{ $post->user->profile }}" alt="">                                                
+                                                <img src=" {{ asset($post->user->profile) }}" alt="">                                                
                                             @else
                                                 <img src=" {{ url('image/Image (2).svg') }}" alt="">                                                                                                
                                             @endif

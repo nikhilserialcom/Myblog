@@ -31,7 +31,7 @@
                                         <div class="user_img_name_div">
                                             <div class="user_img_div">
                                                 @if ($post->user)
-                                                    <img src="{{ $post->user->profile }}" alt="">                                                    
+                                                    <img src="{{ asset($post->user->profile) }}" alt="">                                                    
                                                 @else
                                                     <img src="{{ url('image/user.png') }}" alt="">                                                    
                                                 @endif

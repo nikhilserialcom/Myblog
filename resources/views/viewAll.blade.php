@@ -13,11 +13,13 @@
                         <div class="heading_ul_div ul_categaries demo_post">
                             <ul>
                                 <li>all</li>
-                                <li>Game</li>
-                                <li>Movie</li>
+                                @foreach ($categories as $category)
+                                    <li>{{ $category->categoryName }}</li>
+                                @endforeach
+                                {{-- <li>Movie</li>
                                 <li>Healthcare</li>
                                 <li>Technology</li> 
-                                <li>branding</li>
+                                <li>branding</li> --}}
                             </ul>
                         </div>
                     </div>
@@ -27,7 +29,7 @@
                     @foreach ($posts as $post)
                         <div class="card">
                             <div class="img_div">
-                                <img src="{{ $post->postImage }}" alt="">
+                                <img src="{{ asset($post->postImage) }}" alt="">
                             </div>
 
                             <div class="button_text_user_div">
@@ -40,7 +42,7 @@
                                 <div class="user_img_name_div">
                                     <div class="user_img_div">
                                         @if ($post->user)
-                                            <img src="{{ $post->user->profile }}" alt="">
+                                            <img src="{{ asset($post->user->profile) }}" alt="">
                                         @else
                                             <img src="{{ url('image/user.png') }}" alt="">
                                         @endif

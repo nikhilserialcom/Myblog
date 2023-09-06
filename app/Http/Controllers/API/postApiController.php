@@ -152,9 +152,11 @@ class postApiController extends Controller
         {
             $title = "Recent Articals";
             $posts = Post::orderBy('id','desc')->with('user')->get();
+            $category = Category::limit(5)->get();
             $data = [
                 'title' => $title,
                 'posts' => $posts,
+                'categories' => $category, 
             ];
             return response(view('viewAll')->with($data));
         }
@@ -162,9 +164,11 @@ class postApiController extends Controller
         {
             $title = "Popular Articals";
             $posts = Post::orderBy('count','desc')->with('user')->get();
+            $category = Category::limit(5)->get();
             $data = [
                 'title' => $title,
                 'posts' => $posts,
+                'categories' => $category, 
             ];
             return response(view('viewAll')->with($data));
         }
@@ -172,9 +176,11 @@ class postApiController extends Controller
         {
             $title = "All Articals";
             $posts = Post::with('user')->get();
+            $category = Category::limit(5)->get();
             $data = [
                 'title' => $title,
                 'posts' => $posts,
+                'categories' => $category, 
             ];
             return response(view('viewAll')->with($data));
         }
