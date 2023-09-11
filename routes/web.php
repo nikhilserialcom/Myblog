@@ -55,7 +55,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/post',[PostController::class,'index'])->name('admin.post');
     Route::get('/post/create',[PostController::class,'create'])->name('admin.post.create');
     Route::post('/post/store',[PostController::class,'store'])->name('admin.post.store');
-    Route::post('/ckeditor/upload',[PostController::class,'upload'])->name('ckeditor.upload');
+    Route::post('/ckeditor/upload/',[PostController::class,'upload'])->name('ckeditor.upload');
     Route::get('/post/edit/{id}',[PostController::class,'edit'])->name('admin.post.edit');
     Route::post('/post/update/{id}',[PostController::class,'update'])->name('admin.post.update');
     Route::get('/post/delete/{id}',[PostController::class,'destroy'])->name('admin.post.delete');

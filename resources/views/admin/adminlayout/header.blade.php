@@ -61,7 +61,7 @@
        
           <li class="profile">
             <div class="profile-details">
-                    <img src="{{  Auth::user()->profile }}" alt="profileImg" />
+                    <img src="{{ asset(Auth::user()->profile) }}" alt="profileImg" />
                     <div class="name_job">
                         <div class="name">{{ Auth::user()->name }}</div>
                     </div>

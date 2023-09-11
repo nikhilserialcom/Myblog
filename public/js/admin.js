@@ -77,9 +77,17 @@ delete_category_btn.forEach(element => {
 //         console.error(error);
 //     });
 
-CKEDITOR.replace('body',{
-    filebrowserUploadUrl: document.querySelector('#editor').getAttribute('data-upload-url') + '?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token'),
-    filebrowserUploadMethod:"form", 
-});
+// CKEDITOR.plugins.addExternal('youtube', 'ckeditor/plugins/youtube');
+
+// CKEDITOR.replace('body',{
+//     filebrowserUploadUrl: document.querySelector('#editor').getAttribute('data-upload-url') + '?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token'),
+//     filebrowserUploadMethod:"form", 
+//     extraPlugins: 'youtube',
+//     toolbar: [
+//         // ...
+//         { name: 'insert', items: ['Image', 'YouTube'] },
+//         // ...
+//     ],
+// });
 
 

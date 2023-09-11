@@ -254,7 +254,7 @@ class PostController extends Controller
 
     public function upload(Request $request)
     {
-        // dd($request->all());
+        $CKEditorFuncNum = $request->input('CKEditorFuncNum');
         if ($request->hasFile('upload')) {
             $originname = $request->file('upload')->getClientOriginalName();
                 $filename = pathinfo($originname,PATHINFO_FILENAME);
@@ -265,16 +265,16 @@ class PostController extends Controller
 
                 $request->file('upload')->move(public_path('uploadImages'),$filename);
 
-                $url =$request->getSchemeAndHttpHost(). '/uploadImages/'.$filename;
-                $CKEditorFuncNum = $request->input('CKEditorFuncNum');
-
+                $url ='/uploadImages/'.$filename;
+                // dd($CKEditorFuncNum);
                 $msg  = 'Image Upload Successfully.';
 
-                $responce = "<script>window.parent.CKEDITOR.tools.callFunction('$CKEditorFuncNum','$url','$msg')</script>";
+                $responce = "<script>window.parent.CKEDITOR.tools.callFunction($CKEditorFuncNum,'$url','$msg')</script>";
 
                 @header('Content-type: text/html; charset=utf-8');
 
-                return $responce;
+                return response($responce);
         }
+        return 'No file uploaded';
     }
 }
