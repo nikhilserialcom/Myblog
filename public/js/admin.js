@@ -61,33 +61,24 @@ delete_category_btn.forEach(element => {
     })
 });
 
-// console.log(document.querySelector('#editor').getAttribute('data-csrf-token'));
-
-// ClassicEditor
-//     .create(document.querySelector('#editor'),{
-//         ckfinder:{
-//             // uploadUrl:`{{ route('ckeditor.upload')}}?_token={{ csrf_token() }}`,
-//             uploadUrl: document.querySelector('#editor').getAttribute('data-upload-url') + '?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token'),
-//         }
-//     })
-//     .then(editor => {
-//         // console.log(editor);
-//     })
-//     .catch(error => {
-//         console.error(error);
-//     });
-
-// CKEDITOR.plugins.addExternal('youtube', 'ckeditor/plugins/youtube');
 
 // CKEDITOR.replace('body',{
 //     filebrowserUploadUrl: document.querySelector('#editor').getAttribute('data-upload-url') + '?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token'),
-//     filebrowserUploadMethod:"form", 
-//     extraPlugins: 'youtube',
-//     toolbar: [
-//         // ...
-//         { name: 'insert', items: ['Image', 'YouTube'] },
-//         // ...
-//     ],
+//     filebrowserUploadMethod:"form",
+
 // });
+
+ClassicEditor
+    .create(document.querySelector('#editor'),{
+            ckfinder:{
+                uploadUrl: document.querySelector('#editor').getAttribute('data-upload-url') + '?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token'),
+            }
+         })
+         .then(editor => {
+                console.log(editor);
+        })
+        .catch(error => {
+                console.error(error);
+        });
 
 

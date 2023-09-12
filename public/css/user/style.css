@@ -1285,14 +1285,14 @@ footer .main_footer .subscriibe_followlink_div .social_media_lable_icon_div .soc
     padding-left: 30px;
 }
 
-.outer_all_blog .sub_all_blog .upload_blog .sub_blog .outer_blog .child_blog .blog_contain .embedded_image {
+.outer_all_blog .sub_all_blog .upload_blog .sub_blog .outer_blog .child_blog .blog_contain .image {
     /* width: 600px;
     height: 300px; */
     width: 80%;
     margin: 10px auto;
 }
 
-.outer_all_blog .sub_all_blog .upload_blog .sub_blog .outer_blog .child_blog .blog_contain .embedded_image img {
+.outer_all_blog .sub_all_blog .upload_blog .sub_blog .outer_blog .child_blog .blog_contain .image img {
     width: 100%;
     height: 100%;
     border-radius: 10px;

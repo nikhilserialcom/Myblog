@@ -11,14 +11,10 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.extraPlugins = 'clipboard';
 	
 	config.filebrowserBrowseUrl = "/elfinder/ckeditor";
-	config.filebrowserUploadUrl = document.querySelector('.ckeditor').getAttribute('data-upload-url') + '/?_token=' + document.querySelector('.ckeditor').getAttribute('data-csrf-token');
+	config.filebrowserUploadUrl = document.querySelector('#editor').getAttribute('data-upload-url') + '/?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token');
 	config.filebrowserBrowseMethod = "form";
-
 	config.removePlugins = 'iframe';
-	config.extraPlugins = 'youtube';
+	config.extraPlugins = 'youtube,filetools';
 
 };
-
-console.log(document.querySelector('.ckeditor').getAttribute('data-upload-url'));
-console.log(document.querySelector('.ckeditor').getAttribute('data-csrf-token'));
 
