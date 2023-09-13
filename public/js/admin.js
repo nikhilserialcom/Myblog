@@ -68,17 +68,17 @@ delete_category_btn.forEach(element => {
 
 // });
 
-ClassicEditor
-    .create(document.querySelector('#editor'),{
-            ckfinder:{
-                uploadUrl: document.querySelector('#editor').getAttribute('data-upload-url') + '?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token'),
-            }
-         })
-         .then(editor => {
-                console.log(editor);
-        })
-        .catch(error => {
-                console.error(error);
-        });
+// ClassicEditor
+//     .create(document.querySelector('#editor'),{
+//             ckfinder:{
+//                 uploadUrl: document.querySelector('#editor').getAttribute('data-upload-url') + '?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token'),
+//             }
+//          })
+//          .then(editor => {
+//                 console.log(editor);
+//         })
+//         .catch(error => {
+//                 console.error(error);
+//         });
 
 

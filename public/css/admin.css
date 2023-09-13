@@ -531,6 +531,17 @@ a {
   font-family:  source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
+.home-section .blog-contain .image {
+  width: 500px;
+  height: 300px;
+  margin: 0px auto;
+}
+
+.home-section .blog-contain .image img {
+  width: 100%;
+  height: 100%;
+}
+
 .home-section .blog-table
 {
   width: 100%;

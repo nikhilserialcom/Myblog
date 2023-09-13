@@ -13,7 +13,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.filebrowserBrowseUrl = "/elfinder/ckeditor";
 	config.filebrowserUploadUrl = document.querySelector('#editor').getAttribute('data-upload-url') + '/?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token');
 	config.filebrowserBrowseMethod = "form";
-	config.removePlugins = 'iframe';
+	// config.removePlugins = 'iframe';
 	config.extraPlugins = 'youtube,filetools';
 
 };

@@ -45,7 +45,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">Body:</label>
-                            <textarea class=" form-control mb-2 @error('body') is-invalid @enderror" name="body" id="editor" data-upload-url="{{ route('ckeditor.upload') }}" data-csrf-token="{{ csrf_token() }}" rows="8" placeholder="Enter the Post Body">{{ $post->body }}</textarea>
+                            <textarea class="ckeditor form-control mb-2 @error('body') is-invalid @enderror" name="body" id="editor" data-upload-url="{{ route('ckeditor.upload') }}" data-csrf-token="{{ csrf_token() }}" rows="8" placeholder="Enter the Post Body">{{ $post->body }}</textarea>
                             @error('body')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror

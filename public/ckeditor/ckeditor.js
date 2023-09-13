@@ -20515,7 +20515,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 			},
 			init: function(a) {
 				var c = a.lang.iframe,
-					b = "iframe[align,longdesc,tabindex,frameborder,height,name,scrolling,src,title,width,sandbox]";
+					b = "iframe[align,longdesc,tabindex,frameborder,height,name,scrolling,src,title,width,allowscript]";
 				a.plugins.dialogadvtab && (b += ";iframe" + a.plugins.dialogadvtab.allowedContent({
 					id: 1,
 					classes: 1,
@@ -20569,9 +20569,10 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 			}
 		})
 	})();
-	CKEDITOR.config.iframe_attributes = {
-		sandbox: ""
-	};
+	// CKEDITOR.config.iframe_attributes = {
+	// 	sandbox: "",
+	// 	allowfullscreen: "",
+	// };
 	(function() {
 		function v(a) {
 			function e(a) {
@@ -29126,7 +29127,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 						},
 						onUploaded: function(a) {
 							var b = this.parts.img.$;
-							this.replaceWith('\x3cimg src\x3d"' + a.url + '" width\x3d"' + (a.responseData.width || b.naturalWidth) + '" height\x3d"' + (a.responseData.height || b.naturalHeight) + '"\x3e')
+							this.replaceWith('\x3cimg src\x3d"' + a.url + '" width\x3d"' + (a.responseData.width) + '" height\x3d"' + (a.responseData.height ) + '"\x3e')
 						}
 					}), a.on("paste", function(g) {
 						if (g.data.dataValue.match(/<img[\s\S]+data:/i)) {
