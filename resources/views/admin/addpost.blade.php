@@ -19,15 +19,12 @@
                         @csrf
                         <div class="form-group">
                             <label class="form-label">Title:</label>
-                            <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="" placeholder="Enter the Post Title" value="{{ $post->title }}">
-                            @error('title')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <input type="text" class="form-control" name="title" id="" placeholder="Enter the Post Title" value="{{ $post->title }}" required>
                         </div>
                         <div class="form-group">
                             <label class="form-label">Category:</label>
-                            <select class="form-select mb-2 @error('categoryname') is-invalid @enderror" name="categoryname" aria-label="Default select example">
-                                <option>Choose category...</option>
+                            <select class="form-select mb-2 " name="categoryname" aria-label="Default select example"  required>
+                                <option value="" disabled selected>Select a category</option>
                                     @foreach ($categorys as $category)
                                         @if ($category->status === 'Active')      
                                             <option value="{{ $category->categoryName }}" 
@@ -39,28 +36,19 @@
                                         @endif
                                     @endforeach
                             </select>
-                            @error('categoryname')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
                         </div>
                         <div class="form-group">
                             <label class="form-label">Body:</label>
-                            <textarea class="ckeditor form-control mb-2 @error('body') is-invalid @enderror" name="body" id="editor" data-upload-url="{{ route('ckeditor.upload') }}" data-csrf-token="{{ csrf_token() }}" rows="8" placeholder="Enter the Post Body">{{ $post->body }}</textarea>
-                            @error('body')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <textarea class="ckeditor form-control mb-2 " name="body" id="editor" data-upload-url="{{ route('ckeditor.upload') }}" data-csrf-token="{{ csrf_token() }}" rows="8" placeholder="Enter the Post Body" required>{{ $post->body }}</textarea>
                         </div>
                         <div class="form-group">
                             <label class="form-label">thumbnail :</label>
-                            <input type="file" class="form-control @error('thumbnail') is-invalid @enderror" name="thumbnail"  id="" onchange="previewImage(event)" accept="image/jpg, image/png, image/jpeg">
+                            <input type="file" class="form-control" name="thumbnail"  id="" onchange="previewImage(event)" accept="image/jpg, image/png, image/jpeg" required>
                             @if ($post->postImage)
                                 <img src="{{ asset($post->postImage) }}" class="updateImg"alt="" id="imagePreview"> 
                             @else
                                 <img id="imagePreview" src="#" class="insertImg" alt="Image Preview">
                             @endif
-                            @error('thumbnail')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
                         </div>
                         <button class="btn btn-primary mt-4" type="submit">{{ $btn }}</button>
                     </form>

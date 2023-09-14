@@ -20515,7 +20515,7 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 			},
 			init: function(a) {
 				var c = a.lang.iframe,
-					b = "iframe[align,longdesc,tabindex,frameborder,height,name,scrolling,src,title,width,allowscript]";
+					b = "iframe[align,longdesc,tabindex,frameborder,height,name,scrolling,src,title,width,allowscript,allowfullscreen]";
 				a.plugins.dialogadvtab && (b += ";iframe" + a.plugins.dialogadvtab.allowedContent({
 					id: 1,
 					classes: 1,
@@ -20569,10 +20569,10 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 			}
 		})
 	})();
-	// CKEDITOR.config.iframe_attributes = {
-	// 	sandbox: "",
-	// 	allowfullscreen: "",
-	// };
+	CKEDITOR.config.iframe_attributes = {
+		// sandbox: "",
+		allowfullscreen: "",
+	};
 	(function() {
 		function v(a) {
 			function e(a) {

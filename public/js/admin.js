@@ -62,11 +62,7 @@ delete_category_btn.forEach(element => {
 });
 
 
-// CKEDITOR.replace('body',{
-//     filebrowserUploadUrl: document.querySelector('#editor').getAttribute('data-upload-url') + '?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token'),
-//     filebrowserUploadMethod:"form",
-
-// });
+CKEDITOR.replace('body');
 
 // ClassicEditor
 //     .create(document.querySelector('#editor'),{

@@ -391,6 +391,7 @@ nav .inner_nav .search_lang_mode_div .search_box .sub_box .search_text .text p:h
     border-radius: 0.7rem;
     /* height: 400px; */
     overflow: hidden;
+    margin-top: 10px;
 }
 
 .content .images {
@@ -455,12 +456,12 @@ nav .inner_nav .search_lang_mode_div .search_box .sub_box .search_text .text p:h
 }
 
 .left_right_arrows {
-    width: 100%;
+    width: 94%;
     display: flex;
     justify-content: space-between;
     padding: 0 1rem;
     position: absolute;
-    top: 40%;
+    top: 35%;
 }
 
 .left_right_arrows .sliders span {
@@ -758,6 +759,7 @@ nav .inner_nav .search_lang_mode_div .search_box .sub_box .search_text .text p:h
     font-size: 0.8rem;
     color: var(--gray-color);
     font-weight: bold;
+    /* transition: 0.3s linear; */
 }
 
 .App .all_category_div .popular_articals .card_main .card .users .user_img_name_div span:hover {
@@ -768,6 +770,7 @@ nav .inner_nav .search_lang_mode_div .search_box .sub_box .search_text .text p:h
     font-size: 0.8rem;
     color: var(--gray-color);
     font-weight: 700;
+    /* transition: 0.6s linear; */
 }
 
 .App .all_category_div .popular_articals .card_main .card .users .date_div:hover {
@@ -1255,6 +1258,22 @@ footer .main_footer .subscriibe_followlink_div .social_media_lable_icon_div .soc
     line-height: 28px;
     text-align: start;
     font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+.outer_all_blog .sub_all_blog .upload_blog .sub_blog .outer_blog .child_blog .blog_contain blockquote {
+    border-left: 3px solid #000000;
+    padding: 5px 20px;
+}
+
+.outer_all_blog .sub_all_blog .upload_blog .sub_blog .outer_blog .child_blog .blog_contain pre {
+    border: 1px solid var(--gray-color);
+    padding: 30px;
+    line-height: 1.4;
+}
+
+.outer_all_blog .sub_all_blog .upload_blog .sub_blog .outer_blog .child_blog .blog_contain pre code {
+    font-family: source-code-pro, Menlo, Monaco, "Courier New", Courier, monospace;
+    color: var(--black-color);
 }
 
 .outer_all_blog .sub_all_blog .upload_blog .sub_blog .outer_blog .child_blog .blog_contain p a {

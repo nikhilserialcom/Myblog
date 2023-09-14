@@ -49,7 +49,7 @@
                     <h3>Recent Articles</h3>
                 </div>
                 @foreach ($recentPosts as $recentPost)
-                    <a href="{{ url('api/blog/'. $recentPost->categoryname . '/' . $recentPost->id) }}">
+                    <a href="{{ url('api/blog/'. $recentPost->categoryname . '/' . $recentPost->post_slug) }}">
                         <div class="sub_articles">
                                 <div class="article_img">
                                     <img src="{{ asset($recentPost->postImage) }}" alt="">

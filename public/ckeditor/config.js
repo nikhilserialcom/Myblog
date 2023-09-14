@@ -9,12 +9,14 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	// config.extraPlugins = 'clipboard';
+
+	config.height = 400;
 	
-	config.filebrowserBrowseUrl = "/elfinder/ckeditor";
+	// config.filebrowserBrowseUrl = "/elfinder/ckeditor";
 	config.filebrowserUploadUrl = document.querySelector('#editor').getAttribute('data-upload-url') + '/?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token');
 	config.filebrowserBrowseMethod = "form";
-	// config.removePlugins = 'iframe';
-	config.extraPlugins = 'youtube,filetools';
+	config.removeDialogTabs = 'image:advanced';
+	config.extraPlugins = 'youtube,filetools,codesnippet,image2';
 
 };
 

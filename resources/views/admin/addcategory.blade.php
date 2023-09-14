@@ -20,17 +20,11 @@
                         @csrf
                         <div class="form-group">
                             <label for="name">Category:</label>
-                            <input type="text" class="form-control @error('categoryname') is-invalid @enderror" id="name" name="categoryname" value="{{ $category->categoryName }}">
-                            @error('categoryname')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <input type="text" class="form-control" id="name" name="categoryname" value="{{ $category->categoryName }}" required>
                         </div>
                         <div class="form-group">
                             <label for="name">Icon Class:</label>
-                            <input type="text" class="form-control @error('iconclass') is-invalid @enderror" id="name" name="iconclass" value="{{ $category->iconclass }}">
-                            @error('iconclass')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <input type="text" class="form-control" id="name" name="iconclass" value="{{ $category->iconclass }}" required>
                         </div>
                         <div class="form-group">
                             <label>Status:</label>
@@ -38,9 +32,6 @@
                                 <option selected value="Active" {{ $category->status == 'Active' ? 'selected' : '' }}>Active</option>
                                 <option value="Inactive" {{ $category->status == 'Inactive' ? 'selected' : '' }}>Inactive</option>
                             </select>
-                            @error('status')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
                         </div>
                         <button type="submit" name="submit" class="btn btn-danger">ADD</button>
                     </form>

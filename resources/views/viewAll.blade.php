@@ -36,7 +36,7 @@
                                 <div class="btn_div">
                                     <button>{{ $post->categoryname }}</button>
                                 </div>
-                                <a href="{{ url('api/blog/'. $post->categoryname . '/' . $post->id) }}"><h3>{{ $post->title }}</h3></a>
+                                <a href="{{ url('api/blog/'. $post->categoryname . '/' . $post->post_slug) }}"><h3>{{ $post->title }}</h3></a>
                             </div>
                             <div class="users">
                                 <div class="user_img_name_div">

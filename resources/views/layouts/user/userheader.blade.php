@@ -28,7 +28,7 @@
                 <div class="logo_ul">
                     <i class="fa-solid fa-bars"></i>
                     <div class="logo">
-                       <a href="{{ route('user.home') }}"><img src="{{ url('image/logo.png') }}" alt=""></a>
+                       <a href="{{ route('user.home') }}"><img src="" alt=""></a>
                     </div>
                     <ul>
                         <i class="fa-solid fa-xmark"></i>

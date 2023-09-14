@@ -9,17 +9,21 @@ const search_box =document.querySelector('.search_box');
 const body = document.querySelector('body');
 const sun = document.querySelector('.sun');
 const moon = document.querySelector('.moon');
-// const social_icon = document.querySelectorAll('.social_icon .icon_div');
+const images = document.querySelector('.logo a img');
+const footer_image = document.querySelector('.footer_image a img');
 
-// console.log(social_icon);
+// console.log(footer_image);
 
 const serach_url = SchemeAndHttpHost + "/" + "api/search";
 const search_page = SchemeAndHttpHost + "/" + "api/search-result";
 const blog_url = "api/blog";
-const category_post = "api/categoryPost";
+const category_post = SchemeAndHttpHost + "/" + "api/categoryPost";
+const footer_category_url = SchemeAndHttpHost + "/" + "api/home/footercategory";
 const search_input = document.querySelector('.search');
 const search_result =document.querySelector('.search_result .text');
 const search_btn = document.querySelector('.search_btn');
+const footer_category = document.querySelector('.footer_category ul');
+
 
 var search_data;
 
@@ -52,21 +56,29 @@ let func_for_dark_mode = () => {
     body.classList.add('dark');
     sun.classList.remove('clicked');
     moon.classList.add('clicked');
+    images.src = SchemeAndHttpHost + "/" + "image/Group 3586.svg";
+    footer_image.src = SchemeAndHttpHost + "/" + "image/Group 3586.svg";
 };
 let func_for_light_mode = () => {
     localStorage.setItem('theme', 'light');
     body.classList.remove('dark');
     moon.classList.remove('clicked');
     sun.classList.add('clicked');
+    images.src = SchemeAndHttpHost + "/" + "image/logo.png";
+    footer_image.src = SchemeAndHttpHost + "/" + "image/logo.png";
 };
 if (localStorage.getItem('theme') === 'dark') {
     body.classList.add('dark');
     sun.classList.remove('clicked');
     moon.classList.add('clicked');
+    images.src = SchemeAndHttpHost + "/" + "image/Group 3586.svg";
+    footer_image.src = SchemeAndHttpHost + "/" + "image/Group 3586.svg";
 } else {
     body.classList.remove('dark');
     moon.classList.remove('clicked');
     sun.classList.add('clicked');
+    images.src = SchemeAndHttpHost + "/" + "image/logo.png";
+    footer_image.src = SchemeAndHttpHost + "/" + "image/logo.png";
 }
 sun.addEventListener('click', func_for_light_mode);
 moon.addEventListener('click', func_for_dark_mode);
@@ -128,16 +140,25 @@ search_btn.addEventListener('click', () => {
     }
 })
 
-// social_icon[0].classList.add("active");
+var footerCategory = () => {
+    fetch(footer_category_url, {
+        method: "GET",
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then(response => response.json())
+        .then(json => {
+            footer_category.innerHTML = json.map(val => {
+                const{categoryName} = val;
 
-// var remove_click_div = () => {
-//     social_icon.forEach(element => {
-//         element.classList.remove("active");
-//     });
-// }
+                return `
+                <a href="${category_post}/${categoryName}">
+                    <li>${categoryName}</li>
+                </a>
+                `;
+            }).join('');
+        })
+} 
 
-// social_icon.forEach(element => {
-//     element.addEventListener('click', () => {
-//         remove_click_div();
-//     })
-// });
+footerCategory();

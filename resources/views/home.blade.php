@@ -21,9 +21,8 @@
                     @endforeach
                 </div>
             </div>
-
-
-            <div class="left_right_arrows" style="display: none;">
+            
+            <div class="left_right_arrows">
 
                 <div class="sliders left" onclick="side_slide(-1)">
                     <span class="fas fa-angle-left"></span>

@@ -23,10 +23,14 @@
                     <div class="user_detail_blog">
                         <div class="user_name_logo">
                             <div class="image">
-                                <img src="{{ url('image/Image (1).svg') }}" alt="">
+                                @if ($post->user)
+                                    <img src="{{ asset($post->user->profile) }}" alt="">   
+                                @else
+                                    <img src=" {{ url('image/Image (2).svg') }}" alt="">     
+                                @endif
                             </div>
                             <div class="name_user">
-                                <p>Tracey Wilson</p>
+                                <p>{{ $post->user->name }}</p>
                             </div>
                         </div>
                         <div class="date_time">

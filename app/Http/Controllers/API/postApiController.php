@@ -3,35 +3,34 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class postApiController extends Controller
 {
-    public function showpost($category,$id)
+    public function showpost($category,$slug)
     {
-        $post = Post::find($id);
-        // dd($post);
-        $update = ['count' => $post->count + 1];
-        Post::where('id',$post->id)->update($update);
+        $post = Post::Where('post_slug',$slug)->first();
+        if($post)
+        {
+            $update = ['count' => $post->count + 1];
+            Post::where('id',$post->id)->update($update);
+        }
         $recentPosts = Post::Where('categoryname',$category)
                             ->with('user')
                             ->orderBy('id','desc')
                             ->get();
-        // $user = User::all();
         $data = [
             'post' => $post,
             'recentPosts' => $recentPosts,
-            // 'users' => $user,
         ];
         return response(view('blog')->with($data))->header('Content-Type', 'text/html');
     }
     
     public function showAllPost(Request $request)
     {
-        // $category = $request->input('category');
+
         $json = $request->json()->all();
         $category = $json['category'];
         $posts = Post::with('user')->get();
@@ -57,37 +56,7 @@ class postApiController extends Controller
         return response($popuplarPost);
     }
 
-    public function categoryPost($category)
-    {
-        $post = Post::where('categoryname',$category)->with('user')->get();
-
-        if($post->isEmpty())
-        {
-            $data = [
-                'message' => 'No Data Found',
-                'title' => $category,
-            ];
-            return response(view('categorypost')->with('user')->with($data));
-        }
-        $data = ['posts'=>$post, 'title' => $category, 'message' => '',];
-
-        return response(view('categorypost')->with($data))->header('Content-Type', 'text/html');
-    }
-
-    public function search(Request $request)
-    {
-        $json = $request->json()->all();
-        $post = $json['search'];
-        if($post != '')
-        {
-            $data = Post::where('title', 'like', '%' . $post . '%')
-                ->orWhere('categoryname', 'like', '%' . $post . '%')
-                ->get();
-
-            return response($data);
-        }
-        return response([]);
-    }
+  
 
     public function recentArtical(Request $request)
     {
@@ -135,94 +104,19 @@ class postApiController extends Controller
         return response($slider);       
     }
 
-    public function Allcategory()
-    {
-        $category = Category::orderBy('categoryName')->get();
-        
-        if(!$category)
-        {
-            return response()->json(['message' => "No Data Found"]);
-        }
-        return response($category);
-    }
-
-    public function viewAll($status)
-    {
-        if($status == "recentPost")
-        {
-            $title = "Recent Articals";
-            $posts = Post::orderBy('id','desc')->with('user')->get();
-            $category = Category::limit(5)->get();
-            $data = [
-                'title' => $title,
-                'posts' => $posts,
-                'categories' => $category, 
-            ];
-            return response(view('viewAll')->with($data));
-        }
-        elseif($status == "popularPost")
-        {
-            $title = "Popular Articals";
-            $posts = Post::orderBy('count','desc')->with('user')->get();
-            $category = Category::limit(5)->get();
-            $data = [
-                'title' => $title,
-                'posts' => $posts,
-                'categories' => $category, 
-            ];
-            return response(view('viewAll')->with($data));
-        }
-        elseif($status == "allPost")
-        {
-            $title = "All Articals";
-            $posts = Post::with('user')->get();
-            $category = Category::limit(5)->get();
-            $data = [
-                'title' => $title,
-                'posts' => $posts,
-                'categories' => $category, 
-            ];
-            return response(view('viewAll')->with($data));
-        }
-    }
-
-    public function filterData(Request $request)
+    public function search(Request $request)
     {
         $json = $request->json()->all();
-        $status = $json['status'];
-        $category = $json['categoryname'];
-        if($status == "Recent Articals")
+        $post = $json['search'];
+        if($post != '')
         {
-            $query = Post::orderBy('id','desc')->with('user')->get();
+            $data = Post::where('title', 'like', '%' . $post . '%')
+                ->orWhere('categoryname', 'like', '%' . $post . '%')
+                ->get();
 
-            if($category !== "all")
-            {
-                $query = Post::where('categoryname',$category)->with('user')->orderBy('id','desc')->get();
-            }
-            $recentPost = $query;
-            return response($recentPost);
+            return response($data);
         }
-        if($status == "Popular Articals")
-        {
-            $query = Post::orderBy('count','desc')->with('user')->get();
- 
-            if ($category !== "all") {
-                $query=Post::where('categoryname', $category)->with('user')->orderBy('count','desc')->get(); // Corrected the method name to 'where'
-            }
-            $popuplarPost = $query;
-            return response($popuplarPost);
-        }
-        if ($status == "All Articals") {
-            $query = Post::with('user')->get();
-
-            if($category !== "all")
-            {
-                $query = Post::where('categoryname',$category)->with('user')->get();
-            }
-
-            $allPost = $query;
-            return response($allPost);
-        }
+        return response([]);
     }
 
     public function search_page($search)

@@ -1,8 +1,8 @@
     <footer>
         <div class="main_footer">
             <div class="logo_detail_div">
-                <div class="footer_img_logo_div">
-                <a href="{{ route('user.home') }}"><img src="{{ url('image/logo.png') }}" alt=""></a>
+                <div class="footer_img_logo_div footer_image">
+                    <a href="{{ route('user.home') }}"><img src="{{ url('image/logo.png') }}" alt=""></a>
                 </div>
                 <p>
                     Did you come here for something in particular or just general Riker.
@@ -10,14 +10,14 @@
             </div>
 
             <div class="bloag_categ_quick_link_outer_div">
-                <div class="bloags_category_div ">
+                <div class="bloags_category_div footer_category">
                     <h4>Blogs</h4>
                     <ul>
-                        <a href="{{ url('api/categoryPost/Game') }}"><li>Game</li></a>
+                        {{-- <a href="{{ url('api/categoryPost/Game') }}"><li>Game</li></a>
                         <a href="{{ url('api/categoryPost/Movies') }}"><li>Movie</li></a>
                         <a href="{{ url('api/categoryPost/Healthcare') }}"><li>Healthcare</li></a>
                         <a href="{{ url('api/categoryPost/Travel') }}"><li>Travel</li></a>
-                        <a href="{{ url('api/categoryPost/Bussiness') }}"><li>Bussiness</li></a>
+                        <a href="{{ url('api/categoryPost/Bussiness') }}"><li>Bussiness</li></a> --}}
                     </ul>
                 </div>
 

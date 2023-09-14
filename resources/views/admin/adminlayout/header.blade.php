@@ -24,7 +24,7 @@
         <ul class="nav-list">
           <li>
             <a href="{{ route('dashboard') }}">
-              <i class="bx bx-grid-alt"></i>
+              <i class='bx bxs-dashboard' ></i>
               <span class="links_name">Dashboard</span>
             </a>
             <span class="tooltip">Dashboard</span>

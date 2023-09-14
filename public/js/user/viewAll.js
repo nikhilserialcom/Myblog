@@ -79,7 +79,7 @@ var view_post = (li_text)=> {
         .then(json => {
             // console.log(json);
             view_all_data.innerHTML = json.map(val => {
-                const{id,title,categoryname,postImage,created_at} = val;
+                const{id,post_slug,title,categoryname,postImage,created_at} = val;
                 const user = val.user;
                 const parseDate = new Date(created_at);
                 const formattedDate = new Intl.DateTimeFormat('en-US', {
@@ -88,10 +88,10 @@ var view_post = (li_text)=> {
                     day: 'numeric'
                 }).format(parseDate);
                 return `
-                <a href="${blogUrl}/${categoryname}/${id}">
+                <a href="${blogUrl}/${categoryname}/${post_slug}">
                     <div class="card">
                         <div class="img_div">
-                            <img src="${SchemeAndHttpHost}/${postImage}" alt="">
+                            <img src="${postImage}" alt="">
                         </div>
 
                         <div class="button_text_user_div">
