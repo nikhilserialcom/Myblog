@@ -36,8 +36,19 @@
                 </div>
             </div>
        </div>
-       <div class="container  category-counter">
-            <div class="categorys"></div>
+       <div class="container category-counter">
+        <div class="row">
+            @foreach ($categoryPostCounts as $categoryname => $postcount)    
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="card bg-dark mb-3 box">
+                        <div class="card-body text-center">
+                            <h2 style="color: #ff8acc " class="counter">{{ $postcount }}</h2>
+                            <h5 class="text-count">{{ $categoryname }}</h5>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
        </div>
     </div>
 @endsection

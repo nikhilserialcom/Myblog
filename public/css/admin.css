@@ -15,7 +15,7 @@
   --light-bg: #eee;
   --body-bg: #181616;
   --box-bg: #221f1f;
-  --text-color: #ffffff;
+  --text-color: #9ba3aa;
 
 
   --space-top: 30px;
@@ -405,13 +405,9 @@ a {
 
 .home-section .category-counter
 {
-  border: 1px solid #c0392b;
+  /* border: 1px solid #c0392b; */
   padding: 10px;
-}
-
-.home-section .category-counter .categorys
-{
-  border: 1px solid #181616;
+ 
 }
 
 .home-section form {

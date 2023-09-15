@@ -62,7 +62,6 @@ delete_category_btn.forEach(element => {
 });
 
 
-CKEDITOR.replace('body');
 
 // ClassicEditor
 //     .create(document.querySelector('#editor'),{

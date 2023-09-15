@@ -43,7 +43,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">thumbnail :</label>
-                            <input type="file" class="form-control" name="thumbnail"  id="" onchange="previewImage(event)" accept="image/jpg, image/png, image/jpeg" required>
+                            <input type="file" class="form-control" name="thumbnail"  id="" onchange="previewImage(event)" accept="image/jpg, image/png, image/jpeg" value="{{ $post->postImage }}">
                             @if ($post->postImage)
                                 <img src="{{ asset($post->postImage) }}" class="updateImg"alt="" id="imagePreview"> 
                             @else

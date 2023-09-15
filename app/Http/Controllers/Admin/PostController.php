@@ -59,47 +59,24 @@ class PostController extends Controller
         }
 
 
+        $thumbnailPath = '';
         if($request->hasFile('thumbnail'))
         {
             $thumbnail = $request->file('thumbnail');
             $thumbnailName = time(). '.' .$thumbnail->getClientOriginalExtension();
             $thumbnailPath = $thumbnail->storeAs('Post',$thumbnailName,'public');
 
-            // $postThumbnailsPath ='Post/thumbnails/';
-            // if(!Storage::disk('public')->exists($postThumbnailsPath))
-            // {
-            //     Storage::disk('public')->makeDirectory($postThumbnailsPath,0755,true,true);
-            // }
-
-            // /// Full path to the uploaded image
-            //     $fullImagePath = storage_path('app/public/' . $thumbnailPath);
-
-            //     // Full path for square thumbnail
-            //     $squareThumbnailPath = 'Post/thumbnails/square_' . $thumbnailName;
-            //     $fullSquareThumbnailPath = storage_path('app/public/' . $squareThumbnailPath);
-
-            //     // Full path for resized thumbnail
-            //     $resizedThumbnailPath = 'Post/thumbnails/resized_' . $thumbnailName;
-            //     $fullResizedThumbnailPath = storage_path('app/public/' . $resizedThumbnailPath);
-
-            //     // Create square thumbnail
-            //     Image::make($fullImagePath)
-            //         ->fit(200, 200)
-            //         ->save($fullSquareThumbnailPath);
-
-            //     // Resizing thumbnail
-            //     Image::make($fullImagePath)
-            //         ->fit(500, 350)
-            //         ->save($fullResizedThumbnailPath);
         }
+
         $url = '/storage/';
+        $thumbnailPath = $url . $thumbnailPath; 
 
         Post::create([
             'authorId' =>auth()->user()->id,
             'title' => $request->title,
             'body' => $request->body,
-            'categoryname' => $request->categoryname == 'Choose category...' ? " " : $request->categoryname,
-            'postImage' =>$url.$thumbnailPath ?? null,
+            'categoryname' =>$request->categoryname,
+            'postImage' => $thumbnailPath ?? '',
         ]);
 
         return redirect()->back()->with('success','post add successfully!');
@@ -192,38 +169,8 @@ class PostController extends Controller
             $thumbnail = $request->file('thumbnail');
             $thumbnailName = time(). '.' .$thumbnail->getClientOriginalExtension();
             $thumbnailPath = $thumbnail->storeAs('Post',$thumbnailName,'public');
-
-            // if($posts->postImage)
-            // {
-            //     Storage::disk('public')->delete($posts->postImage);
-            // }
+ 
             $posts->postimage =$url.$thumbnailPath;
-            // $postThumbnailsPath ='Post/thumbnails/';
-            // if(!Storage::disk('public')->exists($postThumbnailsPath))
-            // {
-            //     Storage::disk('public')->makeDirectory($postThumbnailsPath,0755,true,true);
-            // }
-
-            // /// Full path to the uploaded image
-            //     $fullImagePath = storage_path('app/public/' . $thumbnailPath);
-
-            //     // Full path for square thumbnail
-            //     $squareThumbnailPath = 'Post/thumbnails/square_' . $thumbnailName;
-            //     $fullSquareThumbnailPath = storage_path('app/public/' . $squareThumbnailPath);
-
-            //     // Full path for resized thumbnail
-            //     $resizedThumbnailPath = 'Post/thumbnails/resized_' . $thumbnailName;
-            //     $fullResizedThumbnailPath = storage_path('app/public/' . $resizedThumbnailPath);
-
-            //     // Create square thumbnail
-            //     Image::make($fullImagePath)
-            //         ->fit(200, 200)
-            //         ->save($fullSquareThumbnailPath);
-
-            //     // Resizing thumbnail
-            //     Image::make($fullImagePath)
-            //         ->fit(500, 350)
-            //         ->save($fullResizedThumbnailPath);
         }
 
         $posts->title = $request->title;
