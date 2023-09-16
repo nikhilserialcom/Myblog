@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $category = Category::count();
         $categoryPostCounts  = $this->getPostCountsByCategory();
         $post = Post::count();
-        $data = compact('category','post','user','categoryPostCounts');
+        $data = compact('category', 'post', 'user', 'categoryPostCounts');
         return view('dashboard')->with($data);
     }
 
@@ -26,18 +26,16 @@ class DashboardController extends Controller
 
         $categoryPostCount = [];
 
-        foreach($posts as $post)
-        {
+        foreach ($posts as $post) {
             $categoryName = $post->categoryname;
 
-            if(!array_key_exists($categoryName,$categoryPostCount))
-            {
+            if (!array_key_exists($categoryName, $categoryPostCount)) {
                 $categoryPostCount[$categoryName] = 0;
             }
 
             $categoryPostCount[$categoryName]++;
         }
-        
+
         return $categoryPostCount;
     }
 

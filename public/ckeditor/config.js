@@ -16,6 +16,7 @@ CKEDITOR.editorConfig = function( config ) {
 	config.filebrowserUploadUrl = document.querySelector('#editor').getAttribute('data-upload-url') + '/?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token');
 	config.filebrowserBrowseMethod = "form";
 	config.removeDialogTabs = 'image:advanced';
+	config.removePlugins = 'image';
 	config.extraPlugins = 'youtube,filetools,codesnippet,image2';
 
 };
