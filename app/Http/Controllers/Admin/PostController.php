@@ -50,7 +50,7 @@ class PostController extends Controller
             'title' => 'required|string',
             'categoryname' => 'required|string',
             'body' => 'required|string',
-            'thumbnail' => 'image|mimes:jpeg,jpg,png|max:2048',
+            'thumbnail' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
 
         if($validator->fails())
@@ -58,8 +58,6 @@ class PostController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-
-        $thumbnailPath = '';
         if($request->hasFile('thumbnail'))
         {
             $thumbnail = $request->file('thumbnail');
@@ -69,14 +67,13 @@ class PostController extends Controller
         }
 
         $url = '/storage/';
-        $thumbnailPath = $url . $thumbnailPath; 
 
         Post::create([
             'authorId' =>auth()->user()->id,
             'title' => $request->title,
             'body' => $request->body,
             'categoryname' =>$request->categoryname,
-            'postImage' => $thumbnailPath ?? '',
+            'postImage' => $url.$thumbnailPath,
         ]);
 
         return redirect()->back()->with('success','post add successfully!');
