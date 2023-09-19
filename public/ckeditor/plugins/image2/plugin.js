@@ -317,7 +317,7 @@
 
 				// Image can't be captioned when figcaption is disallowed (https://dev.ckeditor.com/ticket/11004).
 				if ( this.data.hasCaption && !editor.filter.checkFeature( features.caption ) )
-					this.data.hasCaption = false;
+					this.data.hasCaption = true;
 
 				// Image can't be aligned when floating is disallowed (https://dev.ckeditor.com/ticket/11004).
 				if ( this.data.align != 'none' && !editor.filter.checkFeature( features.align ) )

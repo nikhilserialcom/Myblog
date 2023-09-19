@@ -523,7 +523,7 @@ CKEDITOR.dialog.add( 'image2', function( editor ) {
 						label: lang.captioned,
 						requiredContent: features.caption.requiredContent,
 						setup: function( widget ) {
-							this.setValue( widget.data.hasCaption );
+							this.setValue( widget.data.hasCaption = true);
 						},
 						commit: function( widget ) {
 							widget.setData( 'hasCaption', this.getValue() );
