@@ -8,6 +8,9 @@
 ( function() {
 
 	var template = '<img alt="" src="" />',
+		templateimage = '<div class = "image">'+ 
+		    template
+		    + '</div>',
 		templateBlock = new CKEDITOR.template(
 			'<figure class="{captionedClass}">' +
 				template +
@@ -310,7 +313,7 @@
 			dialog: 'image2',
 
 			// Template of the widget: plain image.
-			template: template,
+			template: templateimage,
 
 			data: function() {
 				var features = this.features;
