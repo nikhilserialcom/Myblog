@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">
                     @if (session('post_url'))
-                        <a href="{{ session('post_url')}}"><h4 class="text-danger"><i class='bx bx-left-arrow-alt pt-2'></i>Back</h4></a>
+                        <h4><a href="{{ session('post_url')}}" class="back text-danger"><i class='bx bx-left-arrow-alt pt-2'></i>Back</a></h4>
                     @endif
                 </div>
                 <div class="card-body">

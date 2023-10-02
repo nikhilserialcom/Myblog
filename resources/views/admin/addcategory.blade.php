@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header bg-light">
                     @if (session('category_url'))
-                        <a href="{{ session('category_url') }}"><h4 class="text-danger"><i class='bx bx-left-arrow-alt pt-2'></i>Back</h4></a>    
+                        <h4><a href="{{ session('category_url') }}" class="text-danger back"><i class='bx bx-left-arrow-alt pt-2'></i>Back</a></h4>    
                     @endif
                     {{-- <a href="{{ route('admin.category') }}"><h4 class="text-danger"><i class='bx bx-left-arrow-alt pt-2'></i>Back</h4></a> --}}
                 </div>

@@ -462,6 +462,11 @@ a {
   width: 300px;
 }
 
+.home-section .card .back {
+  /* border: 1px solid #000000; */
+  width: 100px;
+}
+
 .home-section .card-body .post-header {
   margin-bottom: 10px;
   width: 800px;
