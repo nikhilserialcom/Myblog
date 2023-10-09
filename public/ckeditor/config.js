@@ -9,6 +9,7 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	// config.extraPlugins = 'clipboard';
+	config.allowedContent = true;
 
 	config.height = 400;
 	
@@ -16,8 +17,9 @@ CKEDITOR.editorConfig = function( config ) {
 	config.filebrowserUploadUrl = document.querySelector('#editor').getAttribute('data-upload-url') + '/?_token=' + document.querySelector('#editor').getAttribute('data-csrf-token');
 	config.filebrowserBrowseMethod = "form";
 	config.removeDialogTabs = 'image:advanced';
-	config.removePlugins = 'image';
+	config.removePlugins = 'image,IFrame';
 	config.extraPlugins = 'youtube,filetools,codesnippet,image2';
 
+	config.removeButtons = 'Iframe'
 };
 

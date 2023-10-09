@@ -42,7 +42,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-label">Body:</label>
-                            <textarea class="ckeditor form-control mb-2 " name="body" id="editor" data-upload-url="{{ route('ckeditor.upload') }}" data-csrf-token="{{ csrf_token() }}" rows="8" placeholder="Enter the Post Body">{{ old('body', $post->body) }}</textarea>
+                            <textarea class="ckeditor form-control mb-2 " name="body" id="editor" data-upload-url="{{ route('ckeditor.upload') }}" data-csrf-token="{{ csrf_token() }}" rows="8" placeholder="Enter the Post Body">{!! old('body', $post->body) !!}</textarea>
                             @error('body')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
