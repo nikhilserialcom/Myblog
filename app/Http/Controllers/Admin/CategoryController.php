@@ -46,7 +46,7 @@ class CategoryController extends Controller
     {
         $validator = Validator::make($request->all(),[
             'categoryname' => 'required|unique:categories',
-            'iconclass' => 'required',
+            'categoryLogo' => 'required',
             'status' => 'required',
         ]);
 
@@ -55,13 +55,19 @@ class CategoryController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        if($request->file('categoryLogo')){
+            $file = $request->file('categoryLogo');
+            $fileName  = time() . '.' . $file->getClientOriginalExtension();
+            $filePath = $file->storeAs('Category',$fileName, 'public');
+        }
+
         Category::create([
             'categoryName' => $request->categoryname,
-            'iconclass' => $request->iconclass,
+            'categoryLogo' => 'storage/' . $filePath,
             'status' => $request->status
         ]);
 
-        return redirect()-> back()->with('success','Category successfully add');
+        return redirect()->back()->with('success','Category successfully add');
     }
 
     /**
@@ -91,7 +97,7 @@ class CategoryController extends Controller
     {
         $validator = Validator::make($request->all(),[
             'categoryname' => 'required',
-            'iconclass' => 'required',
+            'categoryLogo' => 'required',
             'status' => 'required'
         ]);
 
@@ -100,8 +106,17 @@ class CategoryController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        if($request->file('categoryLogo')){
+            $file = $request->file('categoryLogo');
+            $fileName  = time() . '.' . $file->getClientOriginalExtension();
+            $filePath = $file->storeAs('Category',$fileName, 'public');
+        }
+
         $category = Category::find($id);
-        $category->update($validator->validated());
+        $category->categoryName = $request->categoryname;
+        $category->categoryLogo = 'storage/' . $filePath;
+        $category->status = $request->status;
+        $category->update();
         if(session('category_url'))
         {
             return redirect(session(('category_url')));

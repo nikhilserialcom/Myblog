@@ -47,12 +47,12 @@ var category = () => {
         .then(response => response.json())
         .then(json => {
             category_data.innerHTML = json.map(val => {
-                const{categoryName,iconclass} = val;
+                const{categoryName,categoryLogo} = val;
                 return `
                 <a href='${categoryPosturl}/${categoryName}'>
                     <div class="Categories">
                     <div class="icon">
-                        ${iconclass}
+                        <img src="${SchemeAndHttpHost}/${categoryLogo}" alt="">
                     </div>
                         <div class="title_text">
                             <p>${categoryName}</p>
